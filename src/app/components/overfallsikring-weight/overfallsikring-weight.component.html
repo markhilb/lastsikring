@@ -19,11 +19,11 @@
   <app-number-input title="Vinkel°" [(value)]="alpha" [min]="0" [max]="360" />
 </div>
 
-<app-overfallsikring-equation />
+<app-overfallsikring-weight-equation />
 
 <div class="sub-heading">Fremover</div>
 
-<app-overfallsikring-equation
+<app-overfallsikring-weight-equation
   [numStraps]="numStraps"
   [friction]="friction"
   [ft]="ft"
@@ -34,7 +34,7 @@
 
 <div class="sub-heading">Til siden og bakover</div>
 
-<app-overfallsikring-equation
+<app-overfallsikring-weight-equation
   [numStraps]="numStraps"
   [friction]="friction"
   [ft]="ft"

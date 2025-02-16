@@ -1,0 +1,92 @@
+<div class="equation">
+  @if (cxy === undefined || fsxy === undefined) {
+    <math>
+      <mi>m</mi>
+      <mo>=</mo>
+      <mfrac>
+        <mrow>
+          <mn>2</mn>
+          <mo>&middot;</mo>
+          <mi>n</mi>
+          <mo>&middot;</mo>
+          <mi>μ</mi>
+          <mo>&middot;</mo>
+          <mi>sin</mi>
+          <mi>α</mi>
+          <mo>&middot;</mo>
+          <msub>
+            <mi>F</mi>
+            <mi>T</mi>
+          </msub>
+        </mrow>
+        <mrow>
+          <mi>g</mi>
+          <mo>&middot;</mo>
+          <mo>(</mo>
+          <msub>
+            <mi>C</mi>
+            <mi>x,y</mi>
+          </msub>
+          <mo>-</mo>
+          <mi>μ</mi>
+          <mo>&middot;</mo>
+          <msub>
+            <mi>c</mi>
+            <mi>Z</mi>
+          </msub>
+          <mo>)</mo>
+          <mo>&middot;</mo>
+          <msub>
+            <mi>f</mi>
+            <mi>s</mi>
+          </msub>
+        </mrow>
+      </mfrac>
+    </math>
+  } @else {
+    <math>
+      <mi>m</mi>
+      <mo>=</mo>
+      <mfrac>
+        <mrow>
+          <mn>2</mn>
+          <mo>&middot;</mo>
+          <mn>{{ numStraps ?? "_" }}</mn>
+          <mo>&middot;</mo>
+          <mn>{{ friction ?? "_" }}</mn>
+          <mo>&middot;</mo>
+          @if (alpha !== undefined) {
+            <mn>{{ alpha | number: ".0-2" }}</mn>
+          } @else {
+            <mi>_</mi>
+          }
+          <mo>&middot;</mo>
+          <mn>{{ ft ?? "_" }}</mn>
+        </mrow>
+        <mrow>
+          <mn>{{ g }}</mn>
+          <mo>&middot;</mo>
+          <mo>(</mo>
+          <mn>{{ cxy }}</mn>
+          <mo>-</mo>
+          <mn>{{ friction ?? "_" }}</mn>
+          <mo>&middot;</mo>
+          <mn>{{ cz }}</mn>
+          <mo>)</mo>
+          <mo>&middot;</mo>
+          <mn>{{ fsxy }}</mn>
+        </mrow>
+      </mfrac>
+      <mo>=</mo>
+      @if (result === undefined) {
+        <mi>_</mi>
+      } @else if (result < 0) {
+        <mi>Ingen risiko</mi>
+      } @else {
+        <mn>{{ result | number: ".0-0" }}</mn>
+        <mi>k</mi>
+        <mi>g</mi>
+      }
+    </math>
+  }
+</div>

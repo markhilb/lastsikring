@@ -1,2 +1,44 @@
 <div class="heading">Overfallsikring</div>
 <div class="sub-heading">Antall surringer som skal til for å sikre last</div>
+
+<div class="flex wrap gap-8 mt-2">
+  <app-number-input
+    title="Masse (tonn)"
+    [(value)]="weight"
+    [min]="0"
+    [decimal]="false"
+  />
+  <app-number-input
+    title="Friksjon μ"
+    [(value)]="friction"
+    [min]="0"
+    [max]="1"
+    [step]="0.1"
+  />
+  <app-number-input title="FT (kN)" [(value)]="ft" [min]="0" />
+  <app-number-input title="Vinkel°" [(value)]="alpha" [min]="0" [max]="360" />
+</div>
+
+<app-overfallsikring-straps-equation />
+
+<div class="sub-heading">Fremover</div>
+
+<app-overfallsikring-straps-equation
+  [weight]="weight"
+  [friction]="friction"
+  [ft]="ft"
+  [alpha]="alpha"
+  [cxy]="cx"
+  [fsxy]="fsx"
+/>
+
+<div class="sub-heading">Til siden og bakover</div>
+
+<app-overfallsikring-straps-equation
+  [weight]="weight"
+  [friction]="friction"
+  [ft]="ft"
+  [alpha]="alpha"
+  [cxy]="cy"
+  [fsxy]="fsy"
+/>

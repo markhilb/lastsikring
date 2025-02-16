@@ -2,12 +2,12 @@ import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: "app-overfallsikring-equation",
+  selector: "app-overfallsikring-weight-equation",
   imports: [CommonModule],
-  templateUrl: "./overfallsikring-equation.component.html",
-  styleUrl: "./overfallsikring-equation.component.scss",
+  templateUrl: "./overfallsikring-weight-equation.component.html",
+  styleUrl: "./overfallsikring-weight-equation.component.scss",
 })
-export class OverfallsikringEquationComponent {
+export class OverfallsikringWeightEquationComponent {
   @Input() numStraps?: number;
   @Input() friction?: number;
   @Input("ft") _ft?: number;

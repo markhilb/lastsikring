@@ -1,0 +1,34 @@
+<div class="heading">Grimesikring</div>
+<div class="sub-heading">Masse som er stoppet fra å gli</div>
+
+<div class="flex wrap gap-8 mt-2">
+  <app-number-input
+    title="Antall overfall"
+    [(value)]="numStraps"
+    [min]="0"
+    [decimal]="false"
+  />
+  <app-number-input
+    title="Friksjon μ"
+    [(value)]="friction"
+    [min]="0"
+    [max]="1"
+    [step]="0.1"
+  />
+  <app-number-input title="FR (kN)" [(value)]="fr" [min]="0" />
+  <app-number-input title="Vinkel α°" [(value)]="alpha" [min]="0" [max]="360" />
+  <app-number-input title="Vinkel β°" [(value)]="beta" [min]="0" [max]="360" />
+</div>
+
+<app-grimesikring-weight-equation />
+
+<div class="sub-heading">Fremover</div>
+
+<app-grimesikring-weight-equation
+  [numStraps]="numStraps"
+  [friction]="friction"
+  [fr]="fr"
+  [alpha]="alpha"
+  [beta]="beta"
+  [cxy]="cx"
+/>

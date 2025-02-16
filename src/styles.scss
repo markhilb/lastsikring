@@ -5,6 +5,20 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  html,
+  body {
+    font-size: 8px;
+  }
+}
+
 .flex {
   display: flex;
 }

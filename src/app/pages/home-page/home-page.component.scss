@@ -1,7 +1,10 @@
 section {
   margin: auto;
   margin-block: 2rem;
-  max-width: 40rem;
+
+  width: fit-content;
+
+  // max-width: 50rem;
 
   display: flex;
   flex-direction: column;

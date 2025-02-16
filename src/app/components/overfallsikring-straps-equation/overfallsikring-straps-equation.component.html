@@ -78,7 +78,13 @@
         </mrow>
       </mfrac>
       <mo>=</mo>
-      <mn>{{ result ?? "_" }}</mn>
+      @if (result === undefined) {
+        <mi>_</mi>
+      } @else if (result < 0) {
+        <mi>Ingen risiko</mi>
+      } @else {
+        <mn>{{ result }}</mn>
+      }
     </math>
   }
 </div>

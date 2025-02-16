@@ -1,1 +1,117 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+  background-color: #ccc;
+  font-family: Roboto, sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.sub-heading {
+  font-size: 1rem;
+  opacity: 0.67;
+}
+
+.equation {
+  margin-block: 1rem;
+  font-size: 2rem;
+
+  mrow {
+    margin-block: 0.25rem;
+  }
+}
+
+$sizes: 64;
+
+@mixin spacing-classes {
+  @for $i from 1 through $sizes {
+    $size: $i * 0.25rem;
+
+    .gap-#{$i} {
+      row-gap: $size;
+      column-gap: $size;
+    }
+
+    .gapr-#{$i} {
+      row-gap: $size;
+    }
+
+    .gapc-#{$i} {
+      column-gap: $size;
+    }
+
+    .m-#{$i} {
+      margin: $size;
+    }
+
+    .mx-#{$i} {
+      margin-inline: $size;
+    }
+
+    .my-#{$i} {
+      margin-block: $size;
+    }
+
+    .ml-#{$i} {
+      margin-left: $size;
+    }
+
+    .mr-#{$i} {
+      margin-right: $size;
+    }
+
+    .mt-#{$i} {
+      margin-top: $size;
+    }
+
+    .mb-#{$i} {
+      margin-bottom: $size;
+    }
+
+    .p-#{$i} {
+      padding: $size;
+    }
+
+    .px-#{$i} {
+      padding-inline: $size;
+    }
+
+    .py-#{$i} {
+      padding-block: $size;
+    }
+
+    .pl-#{$i} {
+      padding-left: $size;
+    }
+
+    .pr-#{$i} {
+      padding-right: $size;
+    }
+
+    .pt-#{$i} {
+      padding-top: $size;
+    }
+
+    .pb-#{$i} {
+      padding-bottom: $size;
+    }
+  }
+}
+
+@include spacing-classes;

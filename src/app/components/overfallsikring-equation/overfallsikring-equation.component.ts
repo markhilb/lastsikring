@@ -1,0 +1,49 @@
+import { CommonModule } from "@angular/common";
+import { Component, Input } from "@angular/core";
+
+@Component({
+  selector: "app-overfallsikring-equation",
+  imports: [CommonModule],
+  templateUrl: "./overfallsikring-equation.component.html",
+  styleUrl: "./overfallsikring-equation.component.scss",
+})
+export class OverfallsikringEquationComponent {
+  @Input() numStraps?: number;
+  @Input() friction?: number;
+  @Input("ft") _ft?: number;
+  @Input("alpha") _alpha?: number;
+
+  @Input() cxy?: number;
+  @Input() fsxy?: number;
+
+  g = 9.81;
+  cz = 1;
+
+  get ft() {
+    return this._ft !== undefined ? this._ft * 1000 : undefined;
+  }
+
+  get alpha() {
+    return this._alpha !== undefined
+      ? Math.sin((this._alpha * Math.PI) / 180)
+      : undefined;
+  }
+
+  get result() {
+    if (
+      this.numStraps === undefined ||
+      this.friction === undefined ||
+      this.ft === undefined ||
+      this.alpha === undefined ||
+      this.cxy === undefined ||
+      this.fsxy === undefined
+    ) {
+      return undefined;
+    }
+
+    return (
+      (2 * this.numStraps * this.friction * this.alpha * this.ft) /
+      (this.g * (this.cxy - this.friction * this.cz) * this.fsxy)
+    );
+  }
+}

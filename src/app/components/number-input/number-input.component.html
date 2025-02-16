@@ -1,0 +1,13 @@
+<div class="column">
+  @if (title) {
+    <span>{{ title }}</span>
+  }
+  <input
+    type="number"
+    [value]="value ?? ''"
+    [min]="min"
+    [max]="max"
+    [step]="step"
+    (change)="onChange($event)"
+  />
+</div>

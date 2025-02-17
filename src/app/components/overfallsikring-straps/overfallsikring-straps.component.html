@@ -1,13 +1,8 @@
 <div class="heading">Overfallsikring</div>
 <div class="sub-heading">Antall surringer som skal til for å sikre last</div>
 
-<div class="flex wrap gap-8 mt-2">
-  <app-number-input
-    title="Masse (tonn)"
-    [(value)]="weight"
-    [min]="0"
-    [decimal]="false"
-  />
+<div class="flex wrap gap-8 my-4">
+  <app-number-input title="Masse (tonn)" [(value)]="weight" [min]="0" />
   <app-number-input
     title="Friksjon μ"
     [(value)]="friction"

@@ -17,7 +17,8 @@ export class NumberInputComponent {
   @Input() decimal = true;
 
   onChange(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
+    const target = event.target as HTMLInputElement;
+    const value = target.value;
     let num = +value;
 
     if (value === "" || !Number.isFinite(num)) {
@@ -31,7 +32,11 @@ export class NumberInputComponent {
     if (this.max !== undefined && num > this.max) {
       num = this.max;
     }
+    if (!this.decimal) {
+      num = Math.trunc(num);
+    }
 
-    this.valueChange.next(num);
+    target.value = num.toString();
+    this.valueChange.emit(num);
   }
 }

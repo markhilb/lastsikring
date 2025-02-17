@@ -75,19 +75,19 @@
           <mn>{{ fmu }}</mn>
           <mo>&middot;</mo>
           @if (alpha !== undefined) {
-            <mn>{{ Math.sin(alpha) | number: ".0-2" }}</mn>
+            <mn>{{ alpha.sin() | number: ".0-2" }}</mn>
           } @else {
             <mi>_</mi>
           }
           <mo>+</mo>
           @if (alpha !== undefined) {
-            <mn>{{ Math.cos(alpha) | number: ".0-2" }}</mn>
+            <mn>{{ alpha.cos() | number: ".0-2" }}</mn>
           } @else {
             <mi>_</mi>
           }
           <mo>&middot;</mo>
           @if (beta !== undefined) {
-            <mn>{{ Math.cos(beta) | number: ".0-2" }}</mn>
+            <mn>{{ beta.cos() | number: ".0-2" }}</mn>
           } @else {
             <mi>_</mi>
           }

@@ -16,8 +16,6 @@ export class GrimesikringWeightEquationComponent {
 
   @Input() cxy?: number;
 
-  Math = Math;
-
   g = 9.81;
   fmu = 0.75;
   cz = 1;
@@ -27,13 +25,11 @@ export class GrimesikringWeightEquationComponent {
   }
 
   get alpha() {
-    return this._alpha !== undefined
-      ? (this._alpha * Math.PI) / 180
-      : undefined;
+    return this._alpha?.toRadians();
   }
 
   get beta() {
-    return this._beta !== undefined ? (this._beta * Math.PI) / 180 : undefined;
+    return this._beta?.toRadians();
   }
 
   get result() {
@@ -53,8 +49,8 @@ export class GrimesikringWeightEquationComponent {
       (2 *
         this.numStraps *
         this.fr *
-        (this.friction * this.fmu * Math.sin(this.alpha) +
-          Math.cos(this.alpha) * Math.cos(this.beta))) /
+        (this.friction * this.fmu * this.alpha.sin() +
+          this.alpha.cos() * this.beta.cos())) /
       (this.g * (this.cxy - this.friction * this.cz * this.fmu))
     );
   }

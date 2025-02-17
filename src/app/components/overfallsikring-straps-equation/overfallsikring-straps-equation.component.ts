@@ -20,9 +20,7 @@ export class OverfallsikringStrapsEquationComponent {
   cz = 1;
 
   get alpha() {
-    return this._alpha !== undefined
-      ? Math.sin((this._alpha * Math.PI) / 180)
-      : undefined;
+    return this._alpha?.toRadians().sin();
   }
 
   get result() {

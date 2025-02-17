@@ -17,8 +17,8 @@ export class GrimesikringWeightComponent {
   numStraps? = 4;
   friction? = 0.55;
   fr? = 10;
-  alpha? = 90;
-  beta? = 90;
+  alpha? = 0;
+  beta? = 0;
 
   g = 9.81;
   cx = 0.8;

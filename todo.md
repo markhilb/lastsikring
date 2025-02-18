@@ -8,6 +8,8 @@
 [x] Fr -> LC
 [x] LC -> daN
 [x] LC step 100
+[X] friksjon endres på alle samtidig
+[X] vinkel endres på de to øverste samtidig
 
 Spørsmål
 [ ] 0 under antall surringer brøk

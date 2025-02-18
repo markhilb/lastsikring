@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
+import { VariablesService } from "../../services/variables.service";
 
 @Component({
   selector: "app-overfallsikring-straps-equation",
@@ -15,9 +16,6 @@ export class OverfallsikringStrapsEquationComponent {
 
   @Input() cxy?: number;
   @Input() fsxy?: number;
-
-  g = 9.81;
-  cz = 1;
 
   get ft() {
     return this.stf !== undefined ? this.stf / 100 : undefined;
@@ -49,8 +47,13 @@ export class OverfallsikringStrapsEquationComponent {
     }
 
     const numenator =
-      this.weight * this.g * (this.cxy - this.friction * this.cz) * this.fsxy;
+      this.weight *
+      this.vars.g *
+      (this.cxy - this.friction * this.vars.cz) *
+      this.fsxy;
 
     return Math.ceil(numenator / denominator);
   }
+
+  constructor(public vars: VariablesService) {}
 }

@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { VariablesService } from "../../services/variables.service";
 import { GrimesikringWeightEquationComponent } from "../grimesikring-weight-equation/grimesikring-weight-equation.component";
 import { NumberInputComponent } from "../number-input/number-input.component";
 
@@ -15,15 +16,9 @@ import { NumberInputComponent } from "../number-input/number-input.component";
 })
 export class GrimesikringWeightComponent {
   numStraps? = 4;
-  friction? = 0.55;
   lc? = 1000;
   alpha? = 0;
   beta? = 0;
 
-  g = 9.81;
-  cx = 0.8;
-  cy = 0.5;
-  fmux = 1.25;
-  fmuy = 1.1;
-  cz = 1;
+  constructor(public vars: VariablesService) {}
 }

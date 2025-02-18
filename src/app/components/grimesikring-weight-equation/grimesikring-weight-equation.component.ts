@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
+import { VariablesService } from "../../services/variables.service";
 
 @Component({
   selector: "app-grimesikring-weight-equation",
@@ -15,10 +16,6 @@ export class GrimesikringWeightEquationComponent {
   @Input("beta") _beta?: number;
 
   @Input() cxy?: number;
-
-  g = 9.81;
-  fmu = 0.75;
-  cz = 1;
 
   get fr() {
     return this.lc !== undefined ? this.lc / 100 : undefined;
@@ -39,14 +36,13 @@ export class GrimesikringWeightEquationComponent {
       this.fr === undefined ||
       this.alpha === undefined ||
       this.beta === undefined ||
-      this.cxy === undefined ||
-      this.fmu === undefined
+      this.cxy === undefined
     ) {
       return undefined;
     }
 
     const denominator =
-      this.g * (this.cxy - this.friction * this.cz * this.fmu);
+      this.vars.g * (this.cxy - this.friction * this.vars.cz * this.vars.fmu);
 
     if (denominator === 0) {
       return -1;
@@ -56,9 +52,11 @@ export class GrimesikringWeightEquationComponent {
       2 *
       this.numStraps *
       this.fr *
-      (this.friction * this.fmu * this.alpha.sin() +
+      (this.friction * this.vars.fmu * this.alpha.sin() +
         this.alpha.cos() * this.beta.cos());
 
     return Math.round(1000 * (numenator / denominator));
   }
+
+  constructor(public vars: VariablesService) {}
 }

@@ -27,6 +27,10 @@ body {
   flex-wrap: wrap;
 }
 
+.align-items-center {
+  align-items: center;
+}
+
 .column {
   display: flex;
   flex-direction: column;

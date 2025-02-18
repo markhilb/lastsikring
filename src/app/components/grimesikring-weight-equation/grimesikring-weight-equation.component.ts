@@ -10,7 +10,7 @@ import { Component, Input } from "@angular/core";
 export class GrimesikringWeightEquationComponent {
   @Input() numStraps?: number;
   @Input() friction?: number;
-  @Input() fr?: number;
+  @Input() lc?: number;
   @Input("alpha") _alpha?: number;
   @Input("beta") _beta?: number;
 
@@ -19,6 +19,10 @@ export class GrimesikringWeightEquationComponent {
   g = 9.81;
   fmu = 0.75;
   cz = 1;
+
+  get fr() {
+    return this.lc !== undefined ? this.lc / 100 : undefined;
+  }
 
   get alpha() {
     return this._alpha?.toRadians();
@@ -41,14 +45,20 @@ export class GrimesikringWeightEquationComponent {
       return undefined;
     }
 
-    return (
-      1000 *
-      ((2 *
-        this.numStraps *
-        this.fr *
-        (this.friction * this.fmu * this.alpha.sin() +
-          this.alpha.cos() * this.beta.cos())) /
-        (this.g * (this.cxy - this.friction * this.cz * this.fmu)))
-    );
+    const denominator =
+      this.g * (this.cxy - this.friction * this.cz * this.fmu);
+
+    if (denominator === 0) {
+      return -1;
+    }
+
+    const numenator =
+      2 *
+      this.numStraps *
+      this.fr *
+      (this.friction * this.fmu * this.alpha.sin() +
+        this.alpha.cos() * this.beta.cos());
+
+    return Math.round(1000 * (numenator / denominator));
   }
 }

@@ -15,7 +15,7 @@
     [max]="1"
     [step]="0.1"
   />
-  <app-number-input title="FR (kN)" [(value)]="fr" [min]="0" />
+  <app-number-input title="LC (daN)" [(value)]="lc" [min]="0" [step]="100" />
   <app-number-input title="Vinkel α°" [(value)]="alpha" [min]="0" [max]="360" />
   <app-number-input title="Vinkel β°" [(value)]="beta" [min]="0" [max]="360" />
 </div>
@@ -27,7 +27,7 @@
 <app-grimesikring-weight-equation
   [numStraps]="numStraps"
   [friction]="friction"
-  [fr]="fr"
+  [lc]="lc"
   [alpha]="alpha"
   [beta]="beta"
   [cxy]="cx"

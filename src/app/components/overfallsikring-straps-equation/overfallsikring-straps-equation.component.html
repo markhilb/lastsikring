@@ -18,7 +18,7 @@
           <mi>μ</mi>
           <mo>&middot;</mo>
           <msub>
-            <mi>c</mi>
+            <mi>C</mi>
             <mi>Z</mi>
           </msub>
           <mo>)</mo>
@@ -49,7 +49,11 @@
       <mo>=</mo>
       <mfrac>
         <mrow>
-          <mn>{{ weight ?? "_" }}</mn>
+          @if (weight === undefined) {
+            <mn>_</mn>
+          } @else {
+            <mn>{{ weight | number: ".0-3" }}</mn>
+          }
           <mo>&middot;</mo>
           <mn>{{ g }}</mn>
           <mo>&middot;</mo>
@@ -80,7 +84,7 @@
       <mo>=</mo>
       @if (result === undefined) {
         <mi>_</mi>
-      } @else if (result < 0) {
+      } @else if (result <= 0) {
         <mi>Ingen risiko</mi>
       } @else {
         <mn>{{ result }}</mn>

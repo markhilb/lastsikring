@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import CardComponent from "../../components/card/card.component";
+import { EquationsInfoComponent } from "../../components/equations-info/equations-info.component";
 import { GrimesikringWeightComponent } from "../../components/grimesikring-weight/grimesikring-weight.component";
 import { OverfallsikringStrapsComponent } from "../../components/overfallsikring-straps/overfallsikring-straps.component";
 import { OverfallsikringWeightComponent } from "../../components/overfallsikring-weight/overfallsikring-weight.component";
@@ -11,6 +12,7 @@ import { OverfallsikringWeightComponent } from "../../components/overfallsikring
     OverfallsikringWeightComponent,
     OverfallsikringStrapsComponent,
     GrimesikringWeightComponent,
+    EquationsInfoComponent,
   ],
   templateUrl: "./home-page.component.html",
   styleUrl: "./home-page.component.scss",

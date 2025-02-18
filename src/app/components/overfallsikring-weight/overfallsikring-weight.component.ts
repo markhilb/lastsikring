@@ -16,7 +16,7 @@ import { OverfallsikringWeightEquationComponent } from "../overfallsikring-weigh
 export class OverfallsikringWeightComponent {
   numStraps? = 4;
   friction? = 0.55;
-  ft? = 10;
+  stf? = 1000;
   alpha? = 90;
 
   g = 9.81;

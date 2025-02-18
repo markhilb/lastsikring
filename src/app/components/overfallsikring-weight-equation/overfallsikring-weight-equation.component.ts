@@ -10,7 +10,7 @@ import { Component, Input } from "@angular/core";
 export class OverfallsikringWeightEquationComponent {
   @Input() numStraps?: number;
   @Input() friction?: number;
-  @Input() ft?: number;
+  @Input() stf?: number;
   @Input("alpha") _alpha?: number;
 
   @Input() cxy?: number;
@@ -18,6 +18,10 @@ export class OverfallsikringWeightEquationComponent {
 
   g = 9.81;
   cz = 1;
+
+  get ft() {
+    return this.stf !== undefined ? this.stf / 100 : undefined;
+  }
 
   get alpha() {
     return this._alpha?.toRadians().sin();
@@ -35,10 +39,15 @@ export class OverfallsikringWeightEquationComponent {
       return undefined;
     }
 
-    return (
-      1000 *
-      ((2 * this.numStraps * this.friction * this.alpha * this.ft) /
-        (this.g * (this.cxy - this.friction * this.cz) * this.fsxy))
-    );
+    const denominator =
+      this.g * (this.cxy - this.friction * this.cz) * this.fsxy;
+
+    if (denominator === 0) {
+      return -1;
+    }
+
+    const numenator = 2 * this.numStraps * this.friction * this.alpha * this.ft;
+
+    return Math.round(1000 * (numenator / denominator));
   }
 }

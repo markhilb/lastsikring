@@ -16,7 +16,7 @@ import { NumberInputComponent } from "../number-input/number-input.component";
 export class GrimesikringWeightComponent {
   numStraps? = 4;
   friction? = 0.55;
-  fr? = 10;
+  lc? = 1000;
   alpha? = 0;
   beta? = 0;
 

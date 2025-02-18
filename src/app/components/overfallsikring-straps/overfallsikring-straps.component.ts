@@ -9,9 +9,9 @@ import { OverfallsikringStrapsEquationComponent } from "../overfallsikring-strap
   styleUrl: "./overfallsikring-straps.component.scss",
 })
 export class OverfallsikringStrapsComponent {
-  weight? = 28;
+  weight? = 28000;
   friction? = 0.55;
-  ft? = 10;
+  stf? = 1000;
   alpha? = 90;
 
   g = 9.81;

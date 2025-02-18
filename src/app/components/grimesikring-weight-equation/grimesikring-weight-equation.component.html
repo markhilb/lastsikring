@@ -119,6 +119,10 @@
         <mi>g</mi>
       }
 
+      <mi *ngIf="percent !== undefined" class="ml-4">
+        ({{ percent | number: ".0-0" }}%)
+      </mi>
+
       <ng-template #underscore>
         <mi>_</mi>
       </ng-template>

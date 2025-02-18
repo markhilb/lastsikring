@@ -10,13 +10,18 @@
   />
   <app-number-input
     title="Friksjon μ"
-    [(value)]="friction"
+    [(value)]="vars.friction"
     [min]="0"
     [max]="1"
     [step]="0.1"
   />
   <app-number-input title="STF (daN)" [(value)]="stf" [min]="0" [step]="100" />
-  <app-number-input title="Vinkel°" [(value)]="alpha" [min]="0" [max]="360" />
+  <app-number-input
+    title="Vinkel°"
+    [(value)]="vars.alpha"
+    [min]="0"
+    [max]="360"
+  />
 </div>
 
 <app-overfallsikring-weight-equation />
@@ -25,20 +30,20 @@
 
 <app-overfallsikring-weight-equation
   [numStraps]="numStraps"
-  [friction]="friction"
+  [friction]="vars.friction"
   [stf]="stf"
-  [alpha]="alpha"
-  [cxy]="cx"
-  [fsxy]="fsx"
+  [alpha]="vars.alpha"
+  [cxy]="vars.cx"
+  [fsxy]="vars.fsx"
 />
 
 <div class="sub-heading">Til siden og bakover</div>
 
 <app-overfallsikring-weight-equation
   [numStraps]="numStraps"
-  [friction]="friction"
+  [friction]="vars.friction"
   [stf]="stf"
-  [alpha]="alpha"
-  [cxy]="cy"
-  [fsxy]="fsy"
+  [alpha]="vars.alpha"
+  [cxy]="vars.cy"
+  [fsxy]="vars.fsy"
 />

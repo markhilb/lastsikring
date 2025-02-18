@@ -89,7 +89,8 @@
       </msub>
       <mo>=</mo>
       <mi>
-        sikkerhetsfaktor overfallsurring 1.25 fremover, 1.1 sideveis og bakover
+        sikkerhetsfaktor overfallsurring {{ vars.fsx }} fremover, {{ vars.fsy }}
+        sideveis og bakover
       </mi>
     </math>
   </div>
@@ -101,7 +102,10 @@
         <mi>x,y</mi>
       </msub>
       <mo>=</mo>
-      <mi>lastsikkerhetsfaktor 0.8 fremover, 0.5 sideveis og bakover</mi>
+      <mi>
+        lastsikkerhetsfaktor {{ vars.cx }} fremover, {{ vars.cy }} sideveis og
+        bakover
+      </mi>
     </math>
   </div>
 
@@ -112,7 +116,7 @@
         <mi>μ</mi>
       </msub>
       <mo>=</mo>
-      <mi>sikkerhetsfaktor grimesurring 0.75</mi>
+      <mi>sikkerhetsfaktor grimesurring {{ vars.fmu }}</mi>
     </math>
   </div>
 
@@ -120,7 +124,7 @@
     <math>
       <mi>g</mi>
       <mo>=</mo>
-      <mi>9.81</mi>
+      <mi>{{ vars.g }}</mi>
       <mfrac>
         <mrow>
           <mi>m</mi>
@@ -142,7 +146,7 @@
         <mi>Z</mi>
       </msub>
       <mo>=</mo>
-      <mi>1.0 vertikal akselerasjons koeffisient</mi>
+      <mi>{{ vars.cz | number: ".1" }} vertikal akselerasjons koeffisient</mi>
     </math>
   </div>
 </section>

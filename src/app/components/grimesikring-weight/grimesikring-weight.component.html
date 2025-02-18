@@ -10,7 +10,7 @@
   />
   <app-number-input
     title="Friksjon μ"
-    [(value)]="friction"
+    [(value)]="vars.friction"
     [min]="0"
     [max]="1"
     [step]="0.1"
@@ -26,9 +26,9 @@
 
 <app-grimesikring-weight-equation
   [numStraps]="numStraps"
-  [friction]="friction"
+  [friction]="vars.friction"
   [lc]="lc"
   [alpha]="alpha"
   [beta]="beta"
-  [cxy]="cx"
+  [cxy]="vars.cx"
 />

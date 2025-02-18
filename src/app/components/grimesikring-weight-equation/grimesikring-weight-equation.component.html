@@ -77,7 +77,7 @@
             {{ friction }}
           </mn>
           <mo>&middot;</mo>
-          <mn>{{ fmu }}</mn>
+          <mn>{{ vars.fmu }}</mn>
           <mo>&middot;</mo>
           <mn *ngIf="alpha !== undefined; else underscore">
             {{ alpha.sin() | number: ".0-2" }}
@@ -93,7 +93,7 @@
           <mo>)</mo>
         </mrow>
         <mrow>
-          <mn>{{ g }}</mn>
+          <mn>{{ vars.g }}</mn>
           <mo>&middot;</mo>
           <mo>(</mo>
           <mn>{{ cxy }}</mn>
@@ -102,9 +102,9 @@
             {{ friction }}
           </mn>
           <mo>&middot;</mo>
-          <mn>{{ cz }}</mn>
+          <mn>{{ vars.cz }}</mn>
           <mo>&middot;</mo>
-          <mn>{{ fmu }}</mn>
+          <mn>{{ vars.fmu }}</mn>
           <mo>)</mo>
         </mrow>
       </mfrac>

@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
+import { VariablesService } from "../../services/variables.service";
 
 @Component({
   selector: "app-overfallsikring-weight-equation",
@@ -15,9 +16,6 @@ export class OverfallsikringWeightEquationComponent {
 
   @Input() cxy?: number;
   @Input() fsxy?: number;
-
-  g = 9.81;
-  cz = 1;
 
   get ft() {
     return this.stf !== undefined ? this.stf / 100 : undefined;
@@ -40,7 +38,7 @@ export class OverfallsikringWeightEquationComponent {
     }
 
     const denominator =
-      this.g * (this.cxy - this.friction * this.cz) * this.fsxy;
+      this.vars.g * (this.cxy - this.friction * this.vars.cz) * this.fsxy;
 
     if (denominator === 0) {
       return -1;
@@ -50,4 +48,6 @@ export class OverfallsikringWeightEquationComponent {
 
     return Math.round(1000 * (numenator / denominator));
   }
+
+  constructor(public vars: VariablesService) {}
 }

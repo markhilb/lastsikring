@@ -49,18 +49,18 @@
       <mo>=</mo>
       <mfrac>
         <mrow>
-          @if (weight === undefined) {
-            <mn>_</mn>
-          } @else {
-            <mn>{{ weight | number: ".0-3" }}</mn>
-          }
+          <mn *ngIf="weight !== undefined; else underscore">
+            {{ weight | number: ".0-3" }}
+          </mn>
           <mo>&middot;</mo>
           <mn>{{ g }}</mn>
           <mo>&middot;</mo>
           <mo>(</mo>
           <mn>{{ cxy }}</mn>
           <mo>-</mo>
-          <mn>{{ friction ?? "_" }}</mn>
+          <mn *ngIf="friction !== undefined; else underscore">
+            {{ friction }}
+          </mn>
           <mo>&middot;</mo>
           <mn>{{ cz }}</mn>
           <mo>)</mo>
@@ -70,15 +70,17 @@
         <mrow>
           <mn>2</mn>
           <mo>&middot;</mo>
-          <mn>{{ friction ?? "_" }}</mn>
+          <mn *ngIf="friction !== undefined; else underscore">
+            {{ friction }}
+          </mn>
           <mo>&middot;</mo>
-          @if (alpha !== undefined) {
-            <mn>{{ alpha | number: ".0-2" }}</mn>
-          } @else {
-            <mi>_</mi>
-          }
+          <mn *ngIf="alpha !== undefined; else underscore">
+            {{ alpha | number: ".0-2" }}
+          </mn>
           <mo>&middot;</mo>
-          <mn>{{ ft ?? "_" }}</mn>
+          <mn *ngIf="ft !== undefined; else underscore">
+            {{ ft | number: ".0-3" }}
+          </mn>
         </mrow>
       </mfrac>
       <mo>=</mo>
@@ -89,6 +91,10 @@
       } @else {
         <mn>{{ result }}</mn>
       }
+
+      <ng-template #underscore>
+        <mi>_</mi>
+      </ng-template>
     </math>
   }
 </div>

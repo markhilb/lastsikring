@@ -64,32 +64,32 @@
         <mrow>
           <mn>2</mn>
           <mo>&middot;</mo>
-          <mn>{{ numStraps ?? "_" }}</mn>
+          <mn *ngIf="numStraps !== undefined; else underscore">
+            {{ numStraps }}
+          </mn>
           <mo>&middot;</mo>
-          <mn>{{ fr ?? "_" }}</mn>
+          <mn *ngIf="fr !== undefined; else underscore">
+            {{ fr | number: ".0-3" }}
+          </mn>
           <mo>&middot;</mo>
           <mo>(</mo>
-          <mn>{{ friction ?? "_" }}</mn>
+          <mn *ngIf="friction !== undefined; else underscore">
+            {{ friction }}
+          </mn>
           <mo>&middot;</mo>
           <mn>{{ fmu }}</mn>
           <mo>&middot;</mo>
-          @if (alpha !== undefined) {
-            <mn>{{ alpha.sin() | number: ".0-2" }}</mn>
-          } @else {
-            <mi>_</mi>
-          }
+          <mn *ngIf="alpha !== undefined; else underscore">
+            {{ alpha.sin() | number: ".0-2" }}
+          </mn>
           <mo>+</mo>
-          @if (alpha !== undefined) {
-            <mn>{{ alpha.cos() | number: ".0-2" }}</mn>
-          } @else {
-            <mi>_</mi>
-          }
+          <mn *ngIf="alpha !== undefined; else underscore">
+            {{ alpha.cos() | number: ".0-2" }}
+          </mn>
           <mo>&middot;</mo>
-          @if (beta !== undefined) {
-            <mn>{{ beta.cos() | number: ".0-2" }}</mn>
-          } @else {
-            <mi>_</mi>
-          }
+          <mn *ngIf="beta !== undefined; else underscore">
+            {{ beta.cos() | number: ".0-2" }}
+          </mn>
           <mo>)</mo>
         </mrow>
         <mrow>
@@ -98,7 +98,9 @@
           <mo>(</mo>
           <mn>{{ cxy }}</mn>
           <mo>-</mo>
-          <mn>{{ friction ?? "_" }}</mn>
+          <mn *ngIf="friction !== undefined; else underscore">
+            {{ friction }}
+          </mn>
           <mo>&middot;</mo>
           <mn>{{ cz }}</mn>
           <mo>&middot;</mo>
@@ -116,6 +118,10 @@
         <mi>k</mi>
         <mi>g</mi>
       }
+
+      <ng-template #underscore>
+        <mi>_</mi>
+      </ng-template>
     </math>
   }
 </div>

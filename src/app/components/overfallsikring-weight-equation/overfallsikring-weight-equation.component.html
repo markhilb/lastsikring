@@ -1,4 +1,4 @@
-<div class="equation">
+<div class="flex wrap align-items-center equation">
   @if (cxy === undefined || fsxy === undefined) {
     <math>
       <mi>m</mi>
@@ -94,13 +94,13 @@
         <mi>g</mi>
       }
 
-      <mi *ngIf="percent !== undefined" class="ml-4">
-        ({{ percent | number: ".0-0" }}%)
-      </mi>
-
       <ng-template #underscore>
         <mi>_</mi>
       </ng-template>
     </math>
+
+    <span *ngIf="percent !== undefined" class="ml-4">
+      ({{ percent | number: ".0-0" }}% sikret last)
+    </span>
   }
 </div>

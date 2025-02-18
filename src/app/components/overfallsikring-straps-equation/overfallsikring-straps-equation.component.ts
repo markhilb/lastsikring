@@ -56,22 +56,5 @@ export class OverfallsikringStrapsEquationComponent {
     return Math.ceil(numenator / denominator);
   }
 
-  get percent() {
-    const numStraps = this.vars.numStraps;
-    const result = this.result;
-
-    if (
-      numStraps === undefined ||
-      numStraps <= 0 ||
-      result === undefined ||
-      result === null ||
-      result < 0
-    ) {
-      return undefined;
-    }
-
-    return Math.min((100 * result) / numStraps, 100);
-  }
-
   constructor(public vars: VariablesService) {}
 }

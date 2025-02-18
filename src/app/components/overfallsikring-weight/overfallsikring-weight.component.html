@@ -3,8 +3,14 @@
 
 <div class="flex wrap gap-8 my-4">
   <app-number-input
+    title="Masse (kg)"
+    [(value)]="vars.weight"
+    [min]="0"
+    [step]="1000"
+  />
+  <app-number-input
     title="Antall overfall"
-    [(value)]="numStraps"
+    [(value)]="vars.numStraps"
     [min]="0"
     [decimal]="false"
   />
@@ -15,7 +21,12 @@
     [max]="1"
     [step]="0.1"
   />
-  <app-number-input title="STF (daN)" [(value)]="stf" [min]="0" [step]="100" />
+  <app-number-input
+    title="STF (daN)"
+    [(value)]="vars.stf"
+    [min]="0"
+    [step]="100"
+  />
   <app-number-input
     title="Vinkel°"
     [(value)]="vars.alpha"
@@ -29,9 +40,9 @@
 <div class="sub-heading">Fremover</div>
 
 <app-overfallsikring-weight-equation
-  [numStraps]="numStraps"
+  [numStraps]="vars.numStraps"
   [friction]="vars.friction"
-  [stf]="stf"
+  [stf]="vars.stf"
   [alpha]="vars.alpha"
   [cxy]="vars.cx"
   [fsxy]="vars.fsx"
@@ -40,9 +51,9 @@
 <div class="sub-heading">Til siden og bakover</div>
 
 <app-overfallsikring-weight-equation
-  [numStraps]="numStraps"
+  [numStraps]="vars.numStraps"
   [friction]="vars.friction"
-  [stf]="stf"
+  [stf]="vars.stf"
   [alpha]="vars.alpha"
   [cxy]="vars.cy"
   [fsxy]="vars.fsy"

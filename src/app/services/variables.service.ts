@@ -4,7 +4,10 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class VariablesService {
+  public weight? = 28_000;
+  public numStraps? = 4;
   public friction? = 0.55;
+  public stf? = 1_000;
   public alpha? = 90;
 
   public g = 9.81;

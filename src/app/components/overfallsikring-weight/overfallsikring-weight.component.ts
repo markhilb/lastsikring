@@ -15,8 +15,5 @@ import { OverfallsikringWeightEquationComponent } from "../overfallsikring-weigh
   styleUrl: "./overfallsikring-weight.component.scss",
 })
 export class OverfallsikringWeightComponent {
-  numStraps? = 4;
-  stf? = 1000;
-
   constructor(public vars: VariablesService) {}
 }

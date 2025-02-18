@@ -49,5 +49,21 @@ export class OverfallsikringWeightEquationComponent {
     return Math.round(1000 * (numenator / denominator));
   }
 
+  get percent() {
+    const weight = this.vars.weight;
+    const result = this.result;
+
+    if (
+      weight === undefined ||
+      weight <= 0 ||
+      result === undefined ||
+      result < 0
+    ) {
+      return undefined;
+    }
+
+    return Math.min((100 * result) / weight, 100);
+  }
+
   constructor(public vars: VariablesService) {}
 }

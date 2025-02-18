@@ -1,27 +1,6 @@
 <div class="heading">Overfallsikring</div>
-<div class="sub-heading">Antall surringer som skal til for å sikre last</div>
-
-<div class="flex wrap gap-8 my-4">
-  <app-number-input
-    title="Masse (kg)"
-    [(value)]="weight"
-    [min]="0"
-    [step]="1000"
-  />
-  <app-number-input
-    title="Friksjon μ"
-    [(value)]="vars.friction"
-    [min]="0"
-    [max]="1"
-    [step]="0.1"
-  />
-  <app-number-input title="STF (daN)" [(value)]="stf" [min]="0" [step]="100" />
-  <app-number-input
-    title="Vinkel°"
-    [(value)]="vars.alpha"
-    [min]="0"
-    [max]="360"
-  />
+<div class="sub-heading mb-4">
+  Antall surringer som skal til for å sikre last
 </div>
 
 <app-overfallsikring-straps-equation />
@@ -29,9 +8,9 @@
 <div class="sub-heading">Fremover</div>
 
 <app-overfallsikring-straps-equation
-  [weight]="weight"
+  [weight]="vars.weight"
   [friction]="vars.friction"
-  [stf]="stf"
+  [stf]="vars.stf"
   [alpha]="vars.alpha"
   [cxy]="vars.cx"
   [fsxy]="vars.fsx"
@@ -40,9 +19,9 @@
 <div class="sub-heading">Til siden og bakover</div>
 
 <app-overfallsikring-straps-equation
-  [weight]="weight"
+  [weight]="vars.weight"
   [friction]="vars.friction"
-  [stf]="stf"
+  [stf]="vars.stf"
   [alpha]="vars.alpha"
   [cxy]="vars.cy"
   [fsxy]="vars.fsy"

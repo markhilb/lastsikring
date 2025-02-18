@@ -86,11 +86,17 @@
       <mo>=</mo>
       @if (result === undefined) {
         <mi>_</mi>
+      } @else if (result === null) {
+        <mi>Usikret</mi>
       } @else if (result <= 0) {
         <mi>Ingen risiko</mi>
       } @else {
         <mn>{{ result }}</mn>
       }
+
+      <mi *ngIf="percent !== undefined" class="ml-4">
+        ({{ percent | number: ".0-0" }}%)
+      </mi>
 
       <ng-template #underscore>
         <mi>_</mi>

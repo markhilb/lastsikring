@@ -1,0 +1,55 @@
+:host {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+svg {
+  width: 2rem;
+  height: 2rem;
+
+  &.success {
+    fill: #2e7d32;
+  }
+
+  &.info {
+    fill: #0288d1;
+  }
+
+  &.warn {
+    fill: #ed6c02;
+  }
+
+  &.error {
+    fill: #d32f2f;
+  }
+}
+
+div {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  align-items: center;
+
+  &.success {
+    color: #1e4620;
+    background-color: #edf7ed;
+  }
+
+  &.info {
+    color: #014361;
+    background-color: #e5f6fd;
+  }
+
+  &.warn {
+    color: #663c00;
+    background-color: #fff4e5;
+  }
+
+  &.error {
+    color: #5f2120;
+    background-color: #fdeded;
+  }
+}

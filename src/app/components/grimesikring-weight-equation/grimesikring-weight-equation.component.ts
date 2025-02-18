@@ -1,10 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { VariablesService } from "../../services/variables.service";
+import { AlertComponent } from "../alert/alert.component";
 
 @Component({
   selector: "app-grimesikring-weight-equation",
-  imports: [CommonModule],
+  imports: [CommonModule, AlertComponent],
   templateUrl: "./grimesikring-weight-equation.component.html",
   styleUrl: "./grimesikring-weight-equation.component.scss",
 })
@@ -73,6 +74,17 @@ export class GrimesikringWeightEquationComponent {
     }
 
     return Math.min((100 * result) / weight, 100);
+  }
+
+  get alertVariant() {
+    const percent = this.percent;
+    return percent === undefined
+      ? undefined
+      : percent === 100
+        ? "success"
+        : percent < 50
+          ? "error"
+          : "warn";
   }
 
   constructor(public vars: VariablesService) {}

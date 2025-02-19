@@ -99,8 +99,17 @@
       </ng-template>
     </math>
 
-    <app-alert class="my-4" [variant]="alertVariant">
-      {{ percent | number: ".0-0" }}% sikret last
+    <app-alert
+      *ngIf="percent !== undefined"
+      class="my-4"
+      [variant]="alertVariant"
+    >
+      <span>
+        <app-tooltip [value]="percent">
+          {{ percent | number: ".0-0" }}%
+        </app-tooltip>
+        sikret last
+      </span>
     </app-alert>
   }
 </div>

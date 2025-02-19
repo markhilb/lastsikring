@@ -2,10 +2,11 @@ import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { VariablesService } from "../../services/variables.service";
 import { AlertComponent } from "../alert/alert.component";
+import { TooltipComponent } from "../tooltip/tooltip.component";
 
 @Component({
   selector: "app-overfallsikring-weight-equation",
-  imports: [CommonModule, AlertComponent],
+  imports: [CommonModule, AlertComponent, TooltipComponent],
   templateUrl: "./overfallsikring-weight-equation.component.html",
   styleUrl: "./overfallsikring-weight-equation.component.scss",
 })
